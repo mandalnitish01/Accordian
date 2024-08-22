@@ -23,20 +23,23 @@ export default function Accordance() {
   // console.log(Selected, Multiple);
   return (
     <div className="wrapper">
-      <button onClick={() => setEnabled(!Enabled)}>
+      {/* <button onClick={() => setEnabled(!Enabled)}>
         Enable multiple selection
-      </button>
+      </button> */}
       <div className="accordian">
-        {data && data.length > 0 ? (
+        {data && data.length > 0 ?
+         (
           data.map((dataItem) => (
             <div className="item">
 
               {/* this is for question box div  */}
               <div
                 onClick={
-                  Enabled
-                    ? () => handelMultipleselection(dataItem.id)
-                    : () => handelsingleselection(dataItem.id)
+                  () => handelsingleselection(dataItem.id) //for single selection only
+              
+                  // Enabled
+                  //   ? () => handelMultipleselection(dataItem.id)
+                  //   : () => handelsingleselection(dataItem.id)
                 }
                 
                 className="title"
@@ -45,24 +48,29 @@ export default function Accordance() {
                 <span>+</span>
               </div>
 
-              {Enabled
+              {/* {Enabled
                 ? Multiple.indexOf(dataItem.id) !== -1 && (
                     <div className="content">{dataItem.answer}</div>
                   )
                 : Selected === dataItem.id && (
                     <div className="content">{dataItem.answer}</div>
-                  )}
+                  )} */}
 
 {/* for showing the single accordian  */}
-              {/* {Selected === dataItem.id ? (
+              {Selected === dataItem.id ? (
                 <div className="content">{dataItem.answer}</div>
-              ) : null} */}
+              ) : null}
             </div>
           ))
-        ) :
+        ) 
+
+        :
+
          (
           <div>No data present</div>
-        )}
+        )
+        }
+
       </div>
     </div>
   );

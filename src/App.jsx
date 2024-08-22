@@ -7,9 +7,9 @@ function App() {
 
   return (
   <>
-  {/* <Accordance/> */}
+  <Accordance/>
   {/* <RandomColor/> */}
-  <Starrating/>
+  {/* <Starrating/> */}
   </>
   )
 }
