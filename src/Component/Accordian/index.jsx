@@ -8,6 +8,7 @@ export default function Accordance() {
   const [Selected, setSelected] = useState(null);
   const [Enabled, setEnabled] = useState(false);
   const [Multiple, setMultiple] = useState([]);
+  
   const handelsingleselection = (getcurrentId) => {
     setSelected(getcurrentId === Selected ? null : getcurrentId);
   };
@@ -27,21 +28,21 @@ export default function Accordance() {
         Enable multiple selection
       </button> */}
       <div className="accordian">
-        {data && data.length > 0 ?
-         (
-          data.map((dataItem) => (
-            <div className="item">
 
+        {data && data.length > 0 ? 
+        (
+          data.map((dataItem) => 
+            (
+                 <div className="item">
               {/* this is for question box div  */}
               <div
                 onClick={
                   () => handelsingleselection(dataItem.id) //for single selection only
-              
+
                   // Enabled
                   //   ? () => handelMultipleselection(dataItem.id)
                   //   : () => handelsingleselection(dataItem.id)
                 }
-                
                 className="title"
               >
                 <h3>{dataItem.question}</h3>
@@ -56,21 +57,18 @@ export default function Accordance() {
                     <div className="content">{dataItem.answer}</div>
                   )} */}
 
-{/* for showing the single accordian  */}
+              {/* for showing the single accordian  */}
               {Selected === dataItem.id ? (
                 <div className="content">{dataItem.answer}</div>
               ) : null}
             </div>
-          ))
+          )
+         )
         ) 
-
         :
-
          (
           <div>No data present</div>
-        )
-        }
-
+        )}
       </div>
     </div>
   );

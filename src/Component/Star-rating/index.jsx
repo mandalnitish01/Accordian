@@ -10,7 +10,6 @@ export default function starrating({noofstars = 5}){
     // this getcurrentindex refer to the index of map that is current index
     function handleMouseEnter(getCurrentIndex){
         setHover(getCurrentIndex);
-
     }
     function handleMouseLeave(){
        
